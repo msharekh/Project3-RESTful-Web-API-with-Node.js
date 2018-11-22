@@ -54,18 +54,31 @@ class BlockController {
      */
     postNewBlock() {
         this.app.post("/api/block", (req, res) => {
-            //  console.log('visiting postNewBlock req= '+req.body);
-            //  console.log('visiting postNewBlock res= '+res);
-            // Add your code here
+           
             console.log(req.body);
-            // var blockbody=JSON.parse(req);
+             // var blockbody=JSON.parse(req);
             
-            var obj={
-                type:"POST",
-                title:req.body.title,
-                height:req.body.height
-            };
-            res.send(obj);
+            // var obj={
+            //     type:"POST",
+            //     hash:req.body.hash,
+            //     height:req.body.height,
+            //     body:req.body.body,
+            //     time:req.body.time,
+            //     previousBlockHash:req.body.previousBlockHash
+            // };
+
+            let bc = new BlockChainClass.BlockChain();
+
+            bc.addBlock(new BlockClass.Block(req.body.title)).then((result) => {
+                c("Block API DB \t Genesis") ;
+                res.send(                    
+                    {
+                        job:"DONE"
+                    }
+                );
+            }).catch(e => console.error(`.addBlock catch(${e})`)) ;
+
+
 
         });
     }
