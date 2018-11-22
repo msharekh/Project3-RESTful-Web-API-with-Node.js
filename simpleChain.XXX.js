@@ -485,11 +485,11 @@ function runTest2(){
 
 //runTest2();
 
-bc.validateChain()
+//bc.validateChain()
 
-// c(bc.getBlock(2).then((b) => {
-//             c(JSON.parse(b))
-// }));
+c(bc.getBlock(2).then((b) => {
+            c(JSON.parse(b))
+}));
 
 // c(bc.getBlockHeight().then((block) => {   
 //   c("getBlockHeight\t"+block);  
