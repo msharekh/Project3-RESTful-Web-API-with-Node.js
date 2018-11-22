@@ -403,3 +403,5 @@ class BlockChain{
     
   }//<-------end BlockChain
   
+
+  module.exports.BlockChain = BlockChain;
