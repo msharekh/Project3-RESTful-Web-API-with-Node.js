@@ -84,60 +84,30 @@ class BlockChain{
       let self = this;
       return new Promise(function(resolve,reject){
         
-        
         // let h = 0;        
         
         self.getBlockHeight().then((h) => {   
-          
-          if(h>0){
-            c('\n=============================') 
-            c('\ncatch h '+ h)
-          }
-          
-          c('fn addBlock ' + h)
-          
+           
           /// Block height         
           newBlock.height = h;
-          // let objBlock=[];
-          // objBlock.push(newBlock)
-          // objBlock.push(h)
-          
-          // return objBlock;          
-        // }).catch(e => console.error(`.catch(${e})`)).then((objBlock) => { 
-        // .then((objBlock) => { 
-          
+       
           //*************** formating block *****************
           /*    objBlock:-
           -   objBlock[0]...........newBlock
           -   objBlock[1]...........h
           -   objBlock[2]...........previousBlock
           */
-          // UTC timestamp
-          // c('objBlock\t'+objBlock)
-          // let newBlock=objBlock[0];
+         
           newBlock.time = new Date().getTime().toString().slice(0,-3);
-          c('newBlock.time\t'+newBlock.time)
-          
-          // let h=objBlock[1]
-          //  h=objBlock[1]
-          
           
           if(h>0)
           {
             
-            c('\nblock height >0 !!!!!!!!!!!!   = '+h);
-            
-            
-            
-            
             // previous block hash
             self.getBlock(h-1).then((previousBlock) => { 
               
-              c('previousBlock,,,,,\t'+previousBlock) 
               
               newBlock.previousBlockHash = JSON.parse((previousBlock)).hash; 
-              c('previousBlock.hash\t'+JSON.parse((previousBlock)).hash);
-              
               // Block height
               newBlock.height = h;
   
@@ -146,8 +116,6 @@ class BlockChain{
               
               // Block hash with SHA256 using newBlock and converting to a string
               newBlock.hash = SHA256(JSON.stringify(newBlock)).toString();
-              c('newBlock.hash\t'+newBlock.hash);
-              
               //finally VERY IMPORTANT - stringify block
               newBlock=JSON.stringify(newBlock).toString();
               
@@ -161,9 +129,6 @@ class BlockChain{
             
             // Block hash with SHA256 using newBlock and converting to a string
             newBlock.hash = SHA256(JSON.stringify(newBlock)).toString();
-            c('GENESIS newBlock.hash\t'+newBlock.hash);
-            
-            
             
             //finally VERY IMPORTANT - stringify block
             newBlock=JSON.stringify(newBlock).toString();
@@ -225,13 +190,18 @@ class BlockChain{
       return new Promise(function (resolve,reject){
         
         db.get(blockHeight, function(err, block) {
-          if (err) return console.log('Not found!', err);          
-          resolve(block);
+
+          if (err) {
+            reject(`Block Height : ${blockHeight} is Not found!`, err)
+           } else{
+            resolve(block);
+          }
         })   
       });
       
     }
     
+     
     /*################################################
     ################ validate block  #################
     ################################################*/

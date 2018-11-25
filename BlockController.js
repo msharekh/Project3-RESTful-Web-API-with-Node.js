@@ -36,15 +36,25 @@ class BlockController {
 
             // this.blocks[blockheight];
 
-            // console.log(`getBlockByBlockheight req blockheight= ${blockheight}`);
+            console.log(`\n\n*** getBlockByBlockheight req blockheight= ${blockheight} ***`);
             
-
+            // try {
+                
+            // } catch (error) {
+                
+            // }
+            
+ 
+ 
             let bc = new BlockChainClass.BlockChain();
 
             var obj =bc.getBlock(blockheight).then((b) => {
                         c(JSON.parse(b))
                         res.send(JSON.parse(b));
-            })
+            }).catch(err => {
+                console.log('failed ', err); // { error: 'url missing in async task 2' }
+                res.send(err);
+            });
  
         });
     }
@@ -55,23 +65,23 @@ class BlockController {
     postNewBlock() {
         this.app.post("/api/block", (req, res) => {
            
-            console.log(req.body);
-             // var blockbody=JSON.parse(req);
+            // var blockbody=JSON.parse(req);
             
             // var obj={
-            //     type:"POST",
-            //     hash:req.body.hash,
-            //     height:req.body.height,
-            //     body:req.body.body,
-            //     time:req.body.time,
-            //     previousBlockHash:req.body.previousBlockHash
-            // };
-
+                //     type:"POST",
+                //     hash:req.body.hash,
+                //     height:req.body.height,
+                //     body:req.body.body,
+                //     time:req.body.time,
+                //     previousBlockHash:req.body.previousBlockHash
+                // };
+                
+            console.log(`\n\n*** postNewBlock \t {BlockData} ***`);
+            console.log(req.body);
             let bc = new BlockChainClass.BlockChain();
 
             bc.addBlock(new BlockClass.Block(req.body.title)).then((result) => {
-                c("Block API DB \t Genesis") ;
-                res.send(                    
+                 res.send(                    
                     {
                         job:"DONE"
                     }
