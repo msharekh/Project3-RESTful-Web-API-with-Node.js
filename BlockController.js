@@ -78,15 +78,18 @@ class BlockController {
                 
             console.log(`\n\n*** postNewBlock \t {BlockData} ***`);
             console.log(req.body);
-            let bc = new BlockChainClass.BlockChain();
 
-            bc.addBlock(new BlockClass.Block(req.body.title)).then((result) => {
-                 res.send(                    
-                    {
-                        job:"DONE"
-                    }
-                );
-            }).catch(e => console.error(`.addBlock catch(${e})`)) ;
+            if (req.body.title!='') {
+                let bc = new BlockChainClass.BlockChain();
+            
+                bc.addBlock(new BlockClass.Block(req.body.title)).then((result) => {
+                     res.send(result);
+                }).catch(e => console.error(`.addBlock catch(${e})`)) ;
+            } else {
+                res.send('Wrong entry, please enter again');
+            }
+
+           
 
 
 

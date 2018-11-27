@@ -122,6 +122,8 @@ class BlockChain{
               // Adding block object to chain
               //*************** adding block to DB *****************
               addLevelDBData(h,newBlock)
+              resolve(newBlock)
+
             }).catch(e => console.error(`.catch(${e})`)) 
           }
           else{
@@ -136,10 +138,10 @@ class BlockChain{
             // Adding block object to chain
             //*************** adding block to DB *****************
             addLevelDBData(0,newBlock)
+            resolve(newBlock)
             
           }
           // resolve('saved')
-          resolve('okkkkkk.')
   
         // })
         
