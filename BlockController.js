@@ -27,7 +27,7 @@ class BlockController {
      * Implement a GET Endpoint to retrieve a block by index, url: "/api/block/:index"
      */
     getBlockByIndex() {
-        this.app.get("/api/block/:blockheight", (req, res) => {
+        this.app.get("/block/:blockheight", (req, res) => {
             // Add your code here
             var blockheight=req.params.blockheight;
             
@@ -63,7 +63,7 @@ class BlockController {
      * Implement a POST Endpoint to add a new Block, url: "/api/block"
      */
     postNewBlock() {
-        this.app.post("/api/block", (req, res) => {
+        this.app.post("/block", (req, res) => {
            
             // var blockbody=JSON.parse(req);
             
