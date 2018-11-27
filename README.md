@@ -2,8 +2,20 @@
 
 This project uses RESTful API and a Node.js framework that will interfaces with the private blockchain.
 
+## Download project
+```
+git clone https://github.com/msharekh/Project3-RESTful-Web-API-with-Node.js
+```
 
-## (1) INSTALLING NPM AND REQUIRED LIBRARIES
+
+## Installation 
+
+#### Install project dependencies:
+```
+$ npm install
+```
+
+#### REQUIRED LIBRARIES
 - npm:            `npm install npm@latest -g`
 - express:        `npm install express --save`
 - body-parser:    `npm install body-parser --save`
@@ -16,9 +28,7 @@ to start application run this command:
 node app.js
 ```
 
-------------------------------------------------
-
-## (2) ENDPOINTS
+## Usage
  
 #### GET BLOCK:
 
@@ -66,3 +76,9 @@ which will create the following block:
     "previousBlockHash":""
 }
 ```
+
+
+## Built with
+- NodeJS
+- Express
+
