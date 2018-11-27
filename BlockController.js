@@ -83,6 +83,7 @@ class BlockController {
                 let bc = new BlockChainClass.BlockChain();
             
                 bc.addBlock(new BlockClass.Block(req.body.title)).then((result) => {
+                    // console.log('The response after adding should contain that block.js ');
                      res.send(result);
                 }).catch(e => console.error(`.addBlock catch(${e})`)) ;
             } else {
