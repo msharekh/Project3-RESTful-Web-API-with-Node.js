@@ -56,6 +56,7 @@ otherwise it will show the requested block as follows:
 #### POST BLOCK:
 
 Adding block using POSTMAN by calling url and posting JSON data
+
 (http://localhost:8000/api/block)
 
 for example, with following json data
