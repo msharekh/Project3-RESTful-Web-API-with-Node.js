@@ -1,9 +1,21 @@
 # Project3-RESTful-Web-API-with-Node.js
 
-This project uses RESTful API and a Node.js framework that will interfaces with the private blockchain.
+This is RESTful API which interfaces with a private blockchain using ExpressJS and NodeJS will allow users to get block object in json format from  private blockchain database by passing blockheight, and also allow them to post new data to create new block after validating content.
+
+## Download project
+```
+git clone https://github.com/msharekh/Project3-RESTful-Web-API-with-Node.js.git
+```
 
 
-## (1) INSTALLING NPM AND REQUIRED LIBRARIES
+## Installation 
+
+#### Install project dependencies:
+```
+$ npm install
+```
+
+#### REQUIRED LIBRARIES
 - npm:            `npm install npm@latest -g`
 - express:        `npm install express --save`
 - body-parser:    `npm install body-parser --save`
@@ -16,9 +28,7 @@ to start application run this command:
 node app.js
 ```
 
-------------------------------------------------
-
-## (2) ENDPOINTS
+## Usage
  
 #### GET BLOCK:
 
@@ -46,6 +56,7 @@ otherwise it will show the requested block as follows:
 #### POST BLOCK:
 
 Adding block using POSTMAN by calling url and posting JSON data
+
 (http://localhost:8000/api/block)
 
 for example, with following json data
@@ -66,3 +77,9 @@ which will create the following block:
     "previousBlockHash":""
 }
 ```
+
+
+## Built with
+- NodeJS
+- Express
+
