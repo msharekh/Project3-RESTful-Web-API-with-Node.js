@@ -1,6 +1,6 @@
 # Project3-RESTful-Web-API-with-Node.js
 
-This project uses RESTful API and a Node.js framework that will interfaces with the private blockchain.
+This is RESTful API which interfaces with a private blockchain using ExpressJS and NodeJS will allow users to get block object in json format from  private blockchain database by passing blockheight, and also allow them to post new data to create new block after validating content.
 
 ## Download project
 ```
