@@ -4,7 +4,7 @@ This is RESTful API which interfaces with a private blockchain using ExpressJS a
 
 ## Download project
 ```
-git clone https://github.com/msharekh/Project3-RESTful-Web-API-with-Node.js
+git clone https://github.com/msharekh/Project3-RESTful-Web-API-with-Node.js.git
 ```
 
 
