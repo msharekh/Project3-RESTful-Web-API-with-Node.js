@@ -6,6 +6,13 @@ function c(txt){
     console.log(txt);
 }
 
+function isEmpty(obj) {
+    for(var key in obj) {
+        if(obj.hasOwnProperty(key))
+            return false;
+    }
+    return true;
+}
 /**
  * Controller Definition to encapsulate routes to work with blocks
  */
@@ -79,16 +86,34 @@ class BlockController {
             console.log(`\n\n*** postNewBlock \t {BlockData} ***`);
             console.log(req.body);
 
-            if (req.body.title!='') {
-                let bc = new BlockChainClass.BlockChain();
+             if(isEmpty(req.body)) {
+                 // if Object is empty it return true
+
+                res.send('Wrong entry, no block object found!');
+
             
-                bc.addBlock(new BlockClass.Block(req.body.title)).then((result) => {
-                    // console.log('The response after adding should contain that block.js ');
-                     res.send(JSON.parse(result));
-                }).catch(e => console.error(`.addBlock catch(${e})`)) ;
-            } else {
-                res.send('Wrong entry, please enter again');
+                
+
+            } 
+            else {
+                // Object is NOT empty
+
+                if (req.body.title!='') {
+                    let bc = new BlockChainClass.BlockChain();
+                
+                    bc.addBlock(new BlockClass.Block(req.body.title)).then((result) => {
+                        // console.log('The response after adding should contain that block.js ');
+                         res.send(JSON.parse(result));
+                    }).catch(e => console.error(`.addBlock catch(${e})`)) ;
+                } else {
+                    res.send('Wrong entry, please enter again');
+                }
+
+
             }
+
+
+            
 
            
 
