@@ -84,7 +84,7 @@ class BlockController {
             
                 bc.addBlock(new BlockClass.Block(req.body.title)).then((result) => {
                     // console.log('The response after adding should contain that block.js ');
-                     res.send(result);
+                     res.send(JSON.parse(result));
                 }).catch(e => console.error(`.addBlock catch(${e})`)) ;
             } else {
                 res.send('Wrong entry, please enter again');
