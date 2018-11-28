@@ -55,7 +55,7 @@ class BlockController {
  
             let bc = new BlockChainClass.BlockChain();
 
-            var obj =bc.getBlock(blockheight).then((b) => {
+            bc.getBlock(blockheight).then((b) => {
                         c(JSON.parse(b))
                         res.send(JSON.parse(b));
             }).catch(err => {
@@ -121,6 +121,19 @@ class BlockController {
 
         });
     }
+
+
+    // getAllBlocks() {
+    //     this.app.get("/blocks", (req, res) => {
+            
+    //         let bc = new BlockChainClass.BlockChain();
+            
+    //         bc.showBlockChain().then((result) => {
+    //             res.send(result);
+    //         })
+ 
+    //     });
+    // }
 
     /**
      * Help method to inizialized Mock dataset, adds 10 test blocks to the blocks array

@@ -4,6 +4,7 @@ const level = require('level');
 const chainDB = './chaindata';
 const db = level(chainDB);
 // this.db = level(chainDB);
+const BlockClass = require('./Block.js');
 
 function c(txt){
   console.log(txt);
@@ -68,7 +69,12 @@ function c(txt){
 class BlockChain{
     constructor(){
       this.chain = [];
-      // this.addBlock(new Block("First block in the chain - Genesis block"));
+      
+      this.getBlockHeight().then((h) => {
+        if (h==0) {
+          this.addBlock(new BlockClass.Block("First block in the chain  "));          
+        }        
+      });      
     }   
     
    
