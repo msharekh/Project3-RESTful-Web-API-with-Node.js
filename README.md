@@ -35,7 +35,7 @@ node app.js
 To get block by height using POSTMAN
 
 for example, when blockheight=0 to get block by height we use the following url:
-(http://localhost:8000/api/block/0)
+(http://localhost:8000/block/0)
 this will call this method     `getBlockByIndex()` 
 
 if no block found it show this message:
@@ -52,12 +52,15 @@ otherwise it will show the requested block as follows:
     "previousBlockHash": ""
 }
 ```
- 
+or using terminal: 
+```
+curl http://localhost:8000/block/1 
+```
 #### POST BLOCK:
 
 Adding block using POSTMAN by calling url and posting JSON data
 
-(http://localhost:8000/api/block)
+(http://localhost:8000/block)
 
 for example, with following json data
 ```
@@ -78,6 +81,16 @@ which will create the following block:
 }
 ```
 
+or using terminal:
+```
+curl -X POST \
+  http://localhost:8000/block \
+  -H 'Content-Type: application/json' \
+  -H 'cache-control: no-cache' \
+  -d '{
+"title": "block test 11"
+}'
+```
 
 ## Built with
 - NodeJS
